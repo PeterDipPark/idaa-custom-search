@@ -24,7 +24,7 @@
 }
 
 .ui-menu .ui-menu-item-wrapper.ui-state-active {
-	border: 1px solid #3c8af2;
+	border: none; /*1px solid #3c8af2;*/
     background: #3c8af2;
     font-weight: 300;
     color: #fff;
