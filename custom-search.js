@@ -79,7 +79,7 @@ $(document).ready(function() {
             this.input = $( "<input>" )
             .appendTo( this.wrapper )
             .val( value )
-            .attr( "placeholder", this.element.attr("placeholder") )
+            .attr( "placeholder", this.element.attr("placeholder") || "Search...")
             //.addClass( "input w-input" ) //custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
             .autocomplete({
               delay: 0,
