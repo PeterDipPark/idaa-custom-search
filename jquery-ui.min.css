@@ -11,7 +11,7 @@
 	padding: 0px
 }
 .ui-menu .ui-menu-item-wrapper {
-	font-family: 'Frutiger CE', Arial, sans-serif;
+	/*font-family: 'Frutiger CE', Arial, sans-serif;*/
     font-size: 18px;
     line-height: 1.58em;
     font-weight: 300;
@@ -20,8 +20,8 @@
 }
 
 .ui-menu .ui-menu-item-wrapper.ui-state-active {
-	border: 1px solid rgba(255, 82, 82, .87);
-    background: rgba(255, 82, 82, .87);
+	border: 1px solid #3c8af2;
+    background: #3c8af2;
     font-weight: 300;
     color: #fff;
 }

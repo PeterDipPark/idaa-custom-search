@@ -80,7 +80,7 @@ $(document).ready(function() {
             .appendTo( this.wrapper )
             .val( value )
             .attr( "placeholder", this.element.attr("placeholder") )
-            .addClass( "input w-input" ) //custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+            //.addClass( "input w-input" ) //custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
             .autocomplete({
               delay: 0,
               minLength: 0,
@@ -92,11 +92,15 @@ $(document).ready(function() {
               }
             });
 
-            // Reuse classed
-            this.element.each(function() {
-              console.log("this", this);
-              // var elClassList = wrapperElement.classList()
-            });            
+            // Reuse classes
+            for (var i = this.element.length - 1; i >= 0; i--) {
+              var elClassList = this.element[i].className.split(' '); //this.classList;
+              for (var j = 0; j < elClassList.length; j++) {
+                if (elClassList[j]!="is--hidden") {
+                  this.input.addClass(elClassList[j]);
+                }
+              };
+            };           
 
             this._on( this.input, {
               autocompleteselect: function( event, ui ) {
@@ -105,9 +109,9 @@ $(document).ready(function() {
                   item: ui.item.option
                 });
                 // event will trigger also
-                console.log("autocompleteselect", this.element.val());
-                // calcTotal();
-                // setClietData($(this.element));
+                //console.log("autocompleteselect", this.element.val());
+                // this.element.trigger('change');
+                dpForm.triggerChange();
               },
 
               autocompletechange: "_removeIfInvalid"
@@ -198,9 +202,9 @@ $(document).ready(function() {
             this.input.autocomplete( "instance" ).term = "";
           
             // event will trigger also
-            // calcTotal();
-            // setClietData($(this.element));
-            console.log("_removeIfInvalid", this.element.val());
+            // console.log("_removeIfInvalid", this.element.val());
+            // this.element.trigger('change');
+            dpForm.triggerChange();
 
           },
 
