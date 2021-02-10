@@ -48,6 +48,16 @@ $(document).ready(function() {
             };
 
         /**
+         * Disable enter submit form
+         */
+        $(document).keypress(
+          function(event){
+            if (event.which == '13') {
+              event.preventDefault();
+            }
+        });
+
+        /**
          * Auto completed widget Object
          * Uses: http://jqueryui.com/autocomplete/#combobox
          */
@@ -82,6 +92,12 @@ $(document).ready(function() {
               }
             });
 
+            // Reuse classed
+            this.element.each(function() {
+              console.log("this", this);
+              // var elClassList = wrapperElement.classList()
+            });            
+
             this._on( this.input, {
               autocompleteselect: function( event, ui ) {
                 ui.item.option.selected = true;
@@ -89,7 +105,7 @@ $(document).ready(function() {
                   item: ui.item.option
                 });
                 // event will trigger also
-                console.log("autocompleteselect", this.element.value);
+                console.log("autocompleteselect", this.element.val());
                 // calcTotal();
                 // setClietData($(this.element));
               },
@@ -184,7 +200,7 @@ $(document).ready(function() {
             // event will trigger also
             // calcTotal();
             // setClietData($(this.element));
-            console.log("_removeIfInvalid", this.element.value);
+            console.log("_removeIfInvalid", this.element.val());
 
           },
 
